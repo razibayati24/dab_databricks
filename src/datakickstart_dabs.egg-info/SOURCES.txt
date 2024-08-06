@@ -1,0 +1,10 @@
+README.md
+setup.py
+src/datakickstart_dabs/__init__.py
+src/datakickstart_dabs/main.py
+src/datakickstart_dabs.egg-info/PKG-INFO
+src/datakickstart_dabs.egg-info/SOURCES.txt
+src/datakickstart_dabs.egg-info/dependency_links.txt
+src/datakickstart_dabs.egg-info/entry_points.txt
+src/datakickstart_dabs.egg-info/requires.txt
+src/datakickstart_dabs.egg-info/top_level.txt
