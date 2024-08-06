@@ -2,7 +2,7 @@
 resources:
   jobs:
     datakickstart_dabs_job:
-      name: datakickstart_dabs_job
+      name: datakickstart_dabs_job_${bundle.target}
 
       schedule:
         # Run every day at 8:37 AM
@@ -18,12 +18,17 @@ resources:
           job_cluster_key: job_cluster
           notebook_task:
             notebook_path: ../src/notebook.ipynb
+          libraries:
+            - pypi:
+              package: pytest 
+          max_retries: 0
         
         - task_key: refresh_pipeline
           depends_on:
             - task_key: notebook_task
           pipeline_task:
             pipeline_id: ${resources.pipelines.datakickstart_dabs_pipeline.id}
+          max_retries: 0
         
         - task_key: main_task
           depends_on:
@@ -37,6 +42,7 @@ resources:
             # See https://docs.databricks.com/dev-tools/bundles/library-dependencies.html
             # for more information on how to add other libraries.
             - whl: ../dist/*.whl
+          max_retries: 0
 
       job_clusters:
         - job_cluster_key: job_cluster
