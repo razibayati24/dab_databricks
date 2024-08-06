@@ -1,3 +1,0 @@
-[packages]
-main = datakickstart_dabs.main:main
-
